@@ -1,0 +1,42 @@
+
+#LookAt -5 9 -5  -4.75 2.75 0   0 1 0
+LookAt -5.5 7 -5.5  -4.75 2.25 0   0 1 0
+
+Camera "perspective" "float fov" [30]
+
+Film "image"
+    "integer xresolution" [1400] "integer yresolution" [2000]
+    "float scale" 1.5
+    "string filename" "f16-11b.exr"
+    "float cropwindow" [.3 .7 .4 .7]
+    
+Integrator "sppm"  "float radius" .075
+    "integer numiterations" [10] "integer photonsperiteration" [5000000]
+  
+WorldBegin
+
+LightSource "spot" "point from" [0 5 9]
+  "point to" [-5 2.75 0] "blackbody I" [5500 125]
+
+AttributeBegin
+LightSource "infinite" "color L" [.1 .1 .1]
+AttributeEnd
+
+AttributeBegin
+    Material "glass" 
+            "float index" [ 1.2500000000 ] 
+    Shape "plymesh" "string filename" "geometry/mesh_00001.ply" 
+AttributeEnd
+
+AttributeBegin
+    Material "uber" 
+            "float roughness" [ 0.0104080001 ] 
+            "float index" [ 1 ] 
+            "rgb Kd" [ 0.6399999857 0.6399999857 0.6399999857 ] 
+            "rgb Ks" [ 0.1000000015 0.1000000015 0.1000000015 ] 
+            "rgb Kt" [ 0 0 0 ] 
+            "rgb opacity" [ 1 1 1 ] 
+    Shape "plymesh" "string filename" "geometry/mesh_00002.ply" 
+AttributeEnd
+
+WorldEnd

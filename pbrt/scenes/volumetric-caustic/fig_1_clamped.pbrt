@@ -1,0 +1,82 @@
+Integrator "volpath" "integer maxdepth" [ 1 ] "integer seedOne" [ 341321 ]
+Transform [ 1 -0 1.50996e-007 -0 -0 1 -0 -0 1.50996e-007 -0 -1 -0 -1.13687e-013 -1 7 1]
+Sampler "random" "integer pixelsamples" [ 128 ]
+Film "image" "integer xresolution" [ 512 ] "integer yresolution" [ 512 ] "string filename" [ "../../results/figure_5/clamped" ]
+Camera "perspective" "float fov" [ 19.500000 ]
+WorldBegin
+	MakeNamedMedium "gas"
+	"string type" [ "heterogeneous" ]
+	"string densityFunc" [ "const" ]
+	"string transEstFunc" [ "analytic" ]
+	"string sampFunc" [ "trans_weight" ]
+	"string majFunc" [ "const" ]
+	"string minFunc" [ "const" ]
+	"rgb sigma_s" [ 1.500 1.500 1.500 ] "rgb sigma_a" [ 0.0000 0.000 0.000 ] 	"float majScale" [ 0.01 ]
+    "point minBounds" [ -3.0 -3.0 -3.0 ]
+	"point maxBounds" [ 3.0 2.5 3.0 ]
+	MakeNamedMaterial "Blank" "string type" [ "matte" ] "rgb Kd" [ 0.0000 0.0000 0.00000 ]
+	MakeNamedMaterial "LeftWall" "string type" [ "matte" ] "rgb Kd" [ 0.630000 0.065000 0.050000 ]
+	MakeNamedMaterial "RightWall" "string type" [ "matte" ] "rgb Kd" [ 0.140000 0.450000 0.091000 ]
+	MakeNamedMaterial "Floor" "string type" [ "matte" ] "rgb Kd" [ 0.725000 0.710000 0.680000 ]
+	MakeNamedMaterial "Ceiling" "string type" [ "matte" ] "rgb Kd" [ 0.725000 0.710000 0.680000 ]
+	MakeNamedMaterial "BackWall" "string type" [ "matte" ] "rgb Kd" [ 0.725000 0.710000 0.680000 ]
+	MakeNamedMaterial "FrontWall" "string type" [ "none" ]
+	MakeNamedMaterial "Sphere" "string type" [ "glass" ] "float index" [ 1.500000 ] "bool remaproughness" [ "false" ] "rgb Kr" [1.0 0.0 1.0] "rgb Kt" [1.0 0.0 1.0]
+	MakeNamedMaterial "SphereGa" "string type" [ "glass" ] "float index" [ 1.500000 ] "bool remaproughness" [ "false" ] "rgb Kr" [1.0 1.0 0.0] "rgb Kt" [1.0 1.0 0.0]
+	MakeNamedMaterial "SphereGoo" "string type" [ "glass" ] "float index" [ 1.500000 ] "bool remaproughness" [ "false" ] "rgb Kr" [0.0 1.0 1.0] "rgb Kt" [0.0 1.0 1.0]
+	MakeNamedMaterial "SphereOne" "string type" [ "glass" ] "float index" [ 1.500000 ] "bool remaproughness" [ "false" ] "rgb Kr" [0.0 0.0 0.0] "rgb Kt" [0.0 0.0 0.0]
+	MakeNamedMaterial "SphereTwo" "string type" [ "glass" ] "float index" [ 1.500000 ] "bool remaproughness" [ "false" ] "rgb Kr" [0.0 0.0 0.0] "rgb Kt" [0.0 0.0 0.0]
+	MakeNamedMaterial "SphereThree" "string type" [ "glass" ] "float index" [ 1.500000 ] "bool remaproughness" [ "false" ] "rgb Kr" [0.0 0.0 0.0] "rgb Kt" [0.0 0.0 0.0]
+	MakeNamedMaterial "Light" "string type" [ "matte" ] "rgb Kd" [ 0.000000 0.000000 0.000000 ]
+	NamedMaterial "Floor"
+	Shape "trianglemesh" "integer indices" [ 0 1 2 0 2 3 ] "point P" [ -1 1.74846e-007 -1 -1 1.74846e-007 1 1 -1.74846e-007 1 1 -1.74846e-007 -1 ] "normal N" [ 4.37114e-008 1 1.91069e-015 4.37114e-008 1 1.91069e-015 4.37114e-008 1 1.91069e-015 4.37114e-008 1 1.91069e-015 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+	NamedMaterial "BackWall"
+	Shape "trianglemesh" "integer indices" [ 0 1 2 0 2 3 ] "point P" [ -1 0 -1 -1 2 -1 1 2 -1 1 0 -1 ] "normal N" [ 8.74228e-008 -4.37114e-008 -1 8.74228e-008 -4.37114e-008 -1 8.74228e-008 -4.37114e-008 -1 8.74228e-008 -4.37114e-008 -1 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+	AttributeBegin
+		MediumInterface "gas" ""
+		NamedMaterial "FrontWall"
+		Shape "trianglemesh" "integer indices" [ 0 1 2 0 2 3 ] "point P" [ -1 2 1 -1 0 1 1 0 1 1 2 1 ] "normal N" [ 0 -4.37114e-008 1 0 -4.37114e-008 1 0 -4.37114e-008 1 0 -4.37114e-008 1 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+	AttributeEnd
+	NamedMaterial "RightWall"
+	Shape "trianglemesh" "integer indices" [ 0 1 2 0 2 3 ] "point P" [ 1 0 -1 1 2 -1 1 2 1 1 0 1 ] "normal N" [ 1 -4.37114e-008 -4.37114e-008 1 -4.37114e-008 -4.37114e-008 1 -4.37114e-008 -4.37114e-008 1 -4.37114e-008 -4.37114e-008 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+	NamedMaterial "LeftWall"
+	Shape "trianglemesh" "integer indices" [ 0 1 2 0 2 3 ] "point P" [ -1 0 1 -1 2 1 -1 2 -1 -1 0 -1 ] "normal N" [ -1 -4.37114e-008 -4.37114e-008 -1 -4.37114e-008 -4.37114e-008 -1 -4.37114e-008 -4.37114e-008 -1 -4.37114e-008 -4.37114e-008 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+	AttributeBegin
+		MediumInterface "" "gas"
+		NamedMaterial "Blank"
+		TransformBegin
+			Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 -0.22827 1.6 0.152505 1]
+			Shape "sphere" "float radius" [ 0.300000 ]
+		TransformEnd
+	AttributeEnd
+	AttributeBegin
+		MediumInterface "" "gas"
+		NamedMaterial "Blank"
+		TransformBegin
+			Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 -0.22827 1.6 0.152505 1]
+			Shape "sphere" "float radius" [ 0.10000 ]
+		TransformEnd
+	AttributeEnd
+	AttributeBegin
+		MediumInterface "" "gas"
+		NamedMaterial "Blank"
+		TransformBegin
+			Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 0.42827 1.2 0.22505 1]
+			Shape "sphere" "float radius" [ 0.30000 ]
+		TransformEnd
+	AttributeEnd
+	AttributeBegin
+		MediumInterface "" "gas"
+		NamedMaterial "Blank"
+		TransformBegin
+			Transform [ 1 0 0 0 0 1 0 0 0 0 1 0 0.42827 1.2 0.22505 1]
+			Shape "sphere" "float radius" [ 0.10000 ]
+		TransformEnd
+	AttributeEnd
+	AttributeBegin
+		MediumInterface "" "gas"
+		AreaLightSource "diffuse" "rgb L" [ 1521971.812500 1521971.812500 1521971.812500 ]
+		NamedMaterial "Light"
+		Shape "trianglemesh" "integer indices" [ 0 1 2 0 2 3 ] "point P" [ -0.0025 2.98 -0.028 -0.0075 2.98 -0.028 -0.0075 2.98 -0.032 -0.0025 2.98 -0.032 ] "normal N" [ 8.74228e-008 -1 -3.49691e-010 8.74228e-008 -1 -3.49691e-010 8.74228e-008 -1 -3.49691e-010 8.74228e-008 -1 -3.49691e-010 ] "float uv" [ 0 0 1 0 1 1 0 1 ]
+	AttributeEnd
+WorldEnd

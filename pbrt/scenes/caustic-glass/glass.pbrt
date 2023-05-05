@@ -1,0 +1,45 @@
+LookAt -5.5 7 -5.5
+        -4.75 2.25 0
+        0 1 0
+Camera "perspective"
+        "float fov" [ 30 ]
+Film "image"
+        "integer xresolution" [ 1050 ]
+        "integer yresolution" [ 1500 ]
+        "float scale" [ 1.5000000000 ]
+        "string filename" "glass/bdpt"
+
+Sampler "random" "integer pixelsamples" 16384
+Integrator "bdpt" "integer maxdepth" 20
+
+#############################################
+WorldBegin
+
+LightSource "spot"
+        "point from" [ 0 5 9 ]
+        "point to" [ -5 2.7500000000 0 ]
+        "rgb I" [ 139.8113403320 118.6366500854 105.3887557983 ]
+
+AttributeBegin
+    LightSource "infinite"
+            "rgb L" [ 0.1000000015 0.1000000015 0.1000000015 ]
+AttributeEnd
+
+AttributeBegin
+    Material "glass"
+            "float index" [ 1.2500000000 ]
+    Shape "plymesh" "string filename" "geometry/mesh_00001.ply"
+AttributeEnd
+
+AttributeBegin
+    Material "uber"
+            "float roughness" [ 0.0104080001 ]
+            "float index" [ 1 ]
+            "rgb Kd" [ 0.6399999857 0.6399999857 0.6399999857 ]
+            "rgb Ks" [ 0.1000000015 0.1000000015 0.1000000015 ]
+            "rgb Kt" [ 0 0 0 ]
+            "rgb opacity" [ 1 1 1 ]
+    Shape "plymesh" "string filename" "geometry/mesh_00002.ply"
+AttributeEnd
+
+WorldEnd

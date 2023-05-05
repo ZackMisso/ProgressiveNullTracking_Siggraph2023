@@ -1,0 +1,42 @@
+LookAt 100 100 1   -100 -100 -50   0 0 1
+Camera "perspective" "float fov" [20]
+Film "image"  "integer xresolution" [175] "integer yresolution" [125]
+    "string filename" "../results/vpl/bounded_006125_small/roo"
+
+Sampler "random" "integer pixelsamples" 4096
+Integrator "vpl"
+
+WorldBegin
+AttributeBegin
+
+Material "matte" "color Kd" [0 0 0]
+AreaLightSource "diffuse"  "color L" [50 50 50]
+Translate 0 0 800
+ReverseOrientation
+Shape "disk" "float radius" [150] # was 300
+AttributeEnd
+
+AttributeBegin
+CoordSysTransform "camera"
+AttributeEnd
+
+AttributeBegin
+  Material "matte" "color Kd" [.5 .5 .5]
+  Translate 0 0 -140
+Texture "grid" "color" "imagemap" "string filename" ["textures/lines.png"]
+Texture "sgrid" "color" "scale" "texture tex1" "grid" "color tex2" [ .5 .5 .5 ]
+Material "matte" "texture Kd" "sgrid"
+Shape "trianglemesh" "point P" [ -400 -400 0 400 -400 0 400 400 0 -400 400 0 ]
+      "float uv" [ 0 0 5 0 5 5 0 5 ]
+	"integer indices" [ 0 1 2 2 3 0]
+Shape "trianglemesh" "point P" [ -400 -400 0 400 -400 0
+	400 -400  1000 -400 -400 1000 ]
+      "float uv" [ 0 0 5 0 5 5 0 5 ]
+	"integer indices" [ 0 1 2 2 3 0]
+Shape "trianglemesh" "point P" [ -400 -400 0 -400 400 0  -400 400 1000 -400 -400 1000 ]
+      "float uv" [ 0 0 5 0 5 5 0 5 ]
+	"integer indices" [ 0 1 2 2 3 0]
+
+AttributeEnd
+
+WorldEnd
