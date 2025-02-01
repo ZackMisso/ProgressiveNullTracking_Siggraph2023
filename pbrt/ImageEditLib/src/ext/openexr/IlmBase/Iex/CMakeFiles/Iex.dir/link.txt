@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libIex.a CMakeFiles/Iex.dir/IexBaseExc.cpp.o CMakeFiles/Iex.dir/IexThrowErrnoExc.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libIex.a

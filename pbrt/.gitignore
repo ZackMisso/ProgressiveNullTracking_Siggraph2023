@@ -1,4 +1,3 @@
-*~
 *.DS_Store
 src/build
 src/bin
@@ -23,5 +22,4 @@ results/
 hypn_results/
 *.png
 *.exr
-*.txt
 *.hdr

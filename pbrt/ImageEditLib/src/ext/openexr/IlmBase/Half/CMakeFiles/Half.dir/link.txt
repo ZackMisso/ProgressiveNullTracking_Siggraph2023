@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libHalf.a CMakeFiles/Half.dir/half.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libHalf.a

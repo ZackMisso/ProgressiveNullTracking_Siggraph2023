@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libImath.a CMakeFiles/Imath.dir/ImathBox.cpp.o CMakeFiles/Imath.dir/ImathRandom.cpp.o CMakeFiles/Imath.dir/ImathColorAlgo.cpp.o CMakeFiles/Imath.dir/ImathShear.cpp.o CMakeFiles/Imath.dir/ImathFun.cpp.o CMakeFiles/Imath.dir/ImathVec.cpp.o CMakeFiles/Imath.dir/ImathMatrixAlgo.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libImath.a
